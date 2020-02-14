@@ -29,7 +29,7 @@ class AppNavbar extends React.Component {
     render() {
         return (
             <div className="navBar">
-                <Navbar className="navBar" light expand="md" navbar>
+                <Navbar className="navBar" light expand="md" >
                     <NavbarBrand className="navname"><Link to="/" >JERRYWEBMAN</Link></NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>

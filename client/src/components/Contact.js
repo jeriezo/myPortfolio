@@ -9,6 +9,8 @@ import {
 
 } from 'reactstrap';
 
+import axios from 'axios'
+
 class Contact extends React.Component {
     constructor() {
         super()
@@ -19,6 +21,7 @@ class Contact extends React.Component {
             message: ""
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
 
     }
 
@@ -26,6 +29,16 @@ class Contact extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+
+    async handleSubmit(e) {
+        e.preventDefault()
+        const { fullname, email, subject, message } = this.state
+
+        const form = await axios.post('/api/form', {
+            fullname, email, subject, message
+        })
+        console(fullname);
     }
     render() {
         return (
@@ -35,10 +48,10 @@ class Contact extends React.Component {
                     <h3 className="headers">CONTACT US</h3>
                     <hr className="headersLine"></hr>
 
-                    <h4 className="contextBody">Give us the services you would want us to render. We will reply in less than 24 hours or just email: <em>info@jerrywebman.com</em></h4>
+                    <h4 className="contextBody contactText">Tell me the services you require. I will reply in less than 24 hours or just email: <strong>jerrycifeanyi@gmail.com</strong></h4>
 
 
-                    <Form className="contactform">
+                    <Form onSubmit={this.handleSubmit} className="contactform">
                         <FormGroup>
                             <Label for="fullname"><h3>FullName</h3></Label>
                             <Input
@@ -46,6 +59,7 @@ class Contact extends React.Component {
                                 name="fullname"
                                 placeholder="Enter Your FullName"
                                 className='mb-3'
+                                onChange={this.handleChange}
                             />
 
                             <Label for="email"><h3>Email</h3></Label>
@@ -54,6 +68,8 @@ class Contact extends React.Component {
                                 name="email"
                                 placeholder="Enter Your Email"
                                 className='mb-3'
+                                onChange={this.handleChange}
+
                             />
 
                             <Label for="subject"><h3>Subject</h3></Label>
@@ -62,6 +78,8 @@ class Contact extends React.Component {
                                 name="subject"
                                 placeholder="Enter Your Subject"
                                 className='mb-3'
+                                onChange={this.handleChange}
+
                             />
                             <Label for="message"><h3>Message</h3></Label>
                             <Input
@@ -69,6 +87,8 @@ class Contact extends React.Component {
                                 name="message"
                                 placeholder="Enter Your Message Here"
                                 className='mb-3'
+                                onChange={this.handleChange}
+
                             />
                             <Button
                                 style={{ marginTop: '2rem' }} block>Submit Message</Button>

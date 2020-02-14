@@ -1,38 +1,31 @@
 {
   "name": "myportfolio",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Jerrywebman.com",
+  "main": "index.js",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.18",
-    "@fortawesome/free-solid-svg-icons": "^5.8.2",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "bootstrap": "^4.3.1",
-    "font-awesome": "^4.7.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1",
-    "reactstrap": "^8.0.0"
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.0.2",
+    "config": "^3.2.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.2",
+    "nodemon": "^2.0.2"
   },
+  "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeriezo/myPortfolio.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "author": "JerryWebman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeriezo/myPortfolio/issues"
+  },
+  "homepage": "https://github.com/jeriezo/myPortfolio#readme"
 }
